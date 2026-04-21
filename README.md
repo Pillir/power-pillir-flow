@@ -6,6 +6,8 @@ Kiro Power for Pillir Flow — build enterprise apps on SAP, Oracle, through nat
 
 This Power connects Kiro agents to the [Pillir Flow](https://flow.pillir.ai) so you can generate, integrate, and deploy production-ready apps end-to-end.
 
+Pillir Flow — the AI execution engine. Turns AI intent into real work, executed directly against SAP, Oracle, JD Edwards, and your enterprise systems. No APIs. No rewrites. No middleware.
+
 ## What this Power does
 
 - Harvesting your Legacy via Flow
