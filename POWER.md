@@ -1,29 +1,10 @@
 ---
+---
 name: "pillir-flow"
-description: "Build enterprise apps on Pillir Flow through natural language — SAP, Oracle, Salesforce, and REST integrations, spec-driven and deployment-ready."
-version: "0.1.0"
+displayName: "Pillir Flow"
+description: "Build enterprise apps on Pillir Flow through natural language - SAP, Oracle, Salesforce, and REST integrations, spec-driven and deployment-ready."
+keywords: ["pillir", "flow", "pillir flow", "enterprise app", "low-code", "sap integration", "oracle integration", "salesforce integration", "wireframe", "app generation"]
 author: "Pillir"
-Icon: icon.png
-Label: "Pillir Flow"
-Description: "Build enterprise apps on Pillir Flow through natural language..."
-keywords:
-  - pillir
-  - flow
-  - pillir flow
-  - enterprise app
-  - low-code
-  - sap integration
-  - oracle integration
-  - salesforce integration
-  - wireframe
-  - app generation
-steering:
-  - pattern: "**/*flow*"
-    file: steering/flow-app-generation.md
-  - pattern: "**/integration*"
-    file: steering/flow-integrations.md
-  - pattern: "**/deploy*"
-    file: steering/flow-deployment.md
 ---
 
 # Pillir Flow Power
