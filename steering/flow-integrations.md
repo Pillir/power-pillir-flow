@@ -1,19 +1,29 @@
-# Flow Integrations Workflow
+# Flow Integrations — Supported Enterprise Systems
 
-Pillir Flow has native adapters for enterprise systems. Use them instead of writing custom integration code.
+Pillir Flow executes directly against these enterprise systems. The Kiro agent can discover and invoke functions in any of them through the Flow MCP server without writing custom integration code.
 
-Supported native integrations:
+## SAP
 
-- **SAP** — direct adapter, no ABAP or OData development needed
-- **Oracle** — direct adapter for Oracle databases and ERP
-- **Microsoft systems** — Dynamics, SharePoint, etc.
-- **REST APIs** — generic adapter for any RESTful service
+- **What Flow reaches:** Standard BAPIs, custom Z-functions, RFC-enabled function modules
+- **No ABAP needed:** Flow calls functions directly; you don't write or deploy ABAP code
+- **No OData needed:** Flow doesn't layer OData on top; it speaks to SAP's function interface directly
+- **Discovery tool:** `search_sap`
+- **Typical flow:** Ask Flow to find the function → inspect import/export/table params → execute with user-supplied values → return SAP response
 
-Workflow:
+## Oracle
 
-1. Ask the user which backend(s) the app needs to talk to.
-2. Use the Flow MCP integration tool to register the connection — the user provides credentials in Flow, not in Kiro.
-3. Map Flow data models to backend entities through the Flow UI or via MCP calls.
-4. Test the integration in Flow's test environment before deploying.
+- **What Flow reaches:** Oracle ERP functions, stored procedures, and database-level operations
+- **Direct execution:** No connector code, no API gateway, no middleware layer
+- **Discovery:** Use the Flow-provided Oracle discovery tool to find the right function/procedure
 
-If the user asks about a system not in the list above, check whether a REST API exists; if yes, use the REST adapter. Never suggest custom code as a first resort.
+## JD Edwards (JDE)
+
+- **What Flow reaches:** JDE business functions and orchestrations
+- **Direct execution:** No custom integration code needed
+- **Discovery:** Use the Flow-provided JDE discovery tool
+
+## General rules
+
+- **Credentials live in Flow, not in Kiro.** The user configures their ERP connections in their Flow workspace. Kiro's role is to invoke those connections via the Flow MCP server — never to handle ERP passwords or connection strings directly.
+- **One function per execution.** Flow's execution model is transactional. If the user's goal requires multiple function calls, run them in sequence and confirm each one; don't try to batch unrelated calls into a single execution.
+- **Never suggest writing custom integration code.** If Flow can reach the system, use Flow. If Flow can't reach the system, tell the user honestly — don't fall back to "write a REST adapter" as a default.
