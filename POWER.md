@@ -2,7 +2,7 @@
 name: "pillir-flow"
 displayName: "Pillir Flow"
 description: "Pillir Flow — the AI execution engine. Turns AI intent into real work, executed directly against SAP, Oracle, JD Edwards, and your enterprise systems. No APIs. No rewrites. No middleware."
-keywords: ["pillir", "flow", "pillir flow", "enterprise app", "low-code", "sap integration", "oracle integration",  "app generation", "work unit"]
+keywords: ["pillir", "flow", "pillir flow", "enterprise app",  "sap integration", "oracle integration",  "app generation", "work unit"]
 version: "0.1.0"
 author: "Pillir"
 icon: "./icon.png"
@@ -10,9 +10,9 @@ icon: "./icon.png"
 
 # Pillir Flow Power
 
-Guide the Kiro agent to build enterprise-ready applications on Pillir Flow using the Flow MCP server. Flow turns natural-language requirements into deployable web, mobile, and offline-capable apps with native connectors to SAP, Oracle, and REST APIs.
+Flow is the AI execution engine. It turns AI intent into real work — executed directly against SAP, Oracle, JD Edwards, and your enterprise systems. No APIs. No rewrites. No middleware.
 
-Flow uses an outcome-based pricing model: customers pay per **Pillir Work Unit** (one completed business transaction that executes an end-to-end workflow and delivers a measurable outcome). Keep this in mind when designing flows — value scales with work delivered, not with complexity.
+This Power gives the Kiro agent native knowledge of Flow's execution model: how to discover functions in connected ERPs, how to inspect their schemas, how to execute them with the user's parameters.
 
 
 > **CRITICAL — READ BEFORE DOING ANYTHING ELSE:**
@@ -65,16 +65,25 @@ List the Flow MCP tools available in this session and summarize what the user ca
 
 ## Best practices
 
-- **Start with requirements, not screens.** Ask the user for the business problem first; Flow will generate the wireframes.
-- **Prefer native connectors over custom APIs.** If integrating with SAP or Oracle  use Flow's built-in adapters — no ABAP, no OData.
-- **Design for offline first** when the app is field-facing. Flow supports patented offline sync; enable it in the spec.
-- **Export test scripts** Flow generates automatically and run them in your QA pipeline before deployment.
-- **Use Creator or Enterprise edition** for anything involving system integration, custom workflows, or production deployment.
+- **Start with the business outcome, not the technical call.** Ask the user what business transaction needs to happen and which enterprise system holds the data. Let Flow's discovery tools find the right function rather than guessing function names.
+
+- **Prefer native connectors over custom APIs.** When the user needs data from or action in SAP, Oracle, or JD Edwards, use Flow's built-in adapters — no ABAP, no OData, no middleware.
+
+- **Follow the search-then-execute pattern.** For every ERP integration, the agent's workflow is: (1) discover the right function, (2) inspect its schema, (3) confirm the selection and parameters with the user, (4) execute. Don't skip discovery — guessing function names or parameter shapes wastes Work Units and risks bad data.
+
+- **Generate specifications using Flow.** Flow finds the right function from the ERP (both custom and standard) and makes recommendations.
+  Example: `search_sap` returns the function schema, including import, export, and table parameters, and identifies which parameters are mandatory.
+
+- **Execute functions using Flow.** Once a function is identified and selected, Flow runs it directly against the enterprise system and returns the response.
+  Example: `execute_function` runs the selected function with the supplied mandatory and optional parameters and returns the SAP response.
+
+- **Be transparent about Work Units.** Pillir Flow bills per completed business transaction (the "Pillir Work Unit"), not per API call, seat, or token. Flag to the user when a workflow will consume Work Units at runtime — especially loops, batch operations, or scheduled jobs that might run frequently. Suggest combining steps into a single transaction where it preserves the business outcome.
+
 
 ## Steering map
 
 Route to the right guidance based on what the user is doing:
 
-- Generating or editing a flow → `steering/flow-app-generation.md`
-- Connecting to SAP, Oracle or REST → `steering/flow-integrations.md`
-- Preparing for staging or production release → `steering/flow-deployment.md`
+- Discovering or executing ERP functions → `steering/flow-discover-and-execute.md`
+- Connecting to a specific enterprise system (SAP, Oracle, JDE) → `steering/flow-integrations.md`
+- Optimizing for Work Unit consumption → `steering/flow-work-unit-economics.md`

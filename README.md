@@ -2,18 +2,27 @@
 
 # Pillir Flow Power for Kiro
 
-Kiro Power for Pillir Flow — build enterprise apps on SAP, Oracle, through natural language in the Kiro IDE.
+Flow is the AI execution engine. It turns AI intent into real work — executed directly against SAP, Oracle, JD Edwards, and your enterprise systems. No APIs. No rewrites. No middleware.
 
-This Power connects Kiro agents to the [Pillir Flow](https://flow.pillir.ai) so you can generate, integrate, and deploy production-ready apps end-to-end.
-
-Pillir Flow — the AI execution engine. Turns AI intent into real work, executed directly against SAP, Oracle, JD Edwards, and your enterprise systems. No APIs. No rewrites. No middleware.
+This Power connects Kiro agents to the [Pillir Flow](https://flow.pillir.ai) MCP server so your AI assistant can discover and execute ERP functions without writing custom integration code.
 
 ## What this Power does
 
 - Harvesting your Legacy via Flow
-- Connects to SAP, Oracle and REST backends using Flow's native adapters
-- Generates test scripts and deploys to web, mobile, offline, and rugged-device targets
+- Discovers functions in SAP, Oracle, and JD Edwards directly through Flow (both standard and custom functions)
+- Inspects function schemas — import, export, and table parameters, with mandatory fields flagged
+- Executes functions against the connected enterprise system and returns the response to Kiro
+- Enforces a search-then-execute pattern so the agent doesn't guess function names or parameter shapes
 - Keeps your Kiro context focused — steering files load on-demand per workflow
+
+## What this Power does NOT do
+
+Pillir Flow is the execution engine only. This Power covers Flow. It does not cover:
+
+- App generation, wireframes, or UI design (that's **Pillir Studio**)
+- Offline runtime, mobile packaging, or multi-target deployment (that's **EdgeReady Cloud**)
+
+Flow can be used independently — you don't need the full Pillir stack to benefit from this Power.
 
 ## Installation
 
