@@ -83,4 +83,3 @@ Route to the right guidance based on what the user is doing:
 
 - Discovering or executing ERP functions → `steering/flow-discover-and-execute.md`
 - Connecting to a specific enterprise system (SAP, Oracle, JDE) → `steering/flow-integrations.md`
-- Optimizing for Work Unit consumption → `steering/flow-work-unit-economics.md`
