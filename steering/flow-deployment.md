@@ -20,3 +20,5 @@ Deployment checklist:
 5. Monitor rollout and confirm the app is reachable at the target URL.
 
 Never deploy directly to production without a staging pass. If the user asks to skip staging, push back and explain the risk.
+
+Note on Work Units: production deployment is when Work Unit consumption begins. Each completed business transaction in the deployed app counts as one Work Unit. Help the user think through expected transaction volume — daily active users, batch job frequency, integration call patterns — before they commit to production deployment, so they can size their Work Unit allocation appropriately.

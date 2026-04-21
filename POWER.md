@@ -1,32 +1,45 @@
 ---
 name: "pillir-flow"
 displayName: "Pillir Flow"
-description: "Build enterprise apps on Pillir Flow through natural language - SAP, Oracle, Salesforce, and REST integrations, spec-driven and deployment-ready."
-keywords: ["pillir", "flow", "pillir flow", "enterprise app", "low-code", "sap integration", "oracle integration", "salesforce integration", "wireframe", "app generation"]
+description: "Build enterprise apps on Pillir Flow through natural language - SAP, Oracle and REST integrations, spec-driven and deployment-ready."
+keywords: ["pillir", "flow", "pillir flow", "enterprise app", "low-code", "sap integration", "oracle integration",  "wireframe", "app generation", "work unit"]
+version: "0.1.0"
 author: "Pillir"
+icon: "./icon.png"
 ---
 
 # Pillir Flow Power
 
-Guide the Kiro agent to build enterprise-ready applications on Pillir Flow using the Flow MCP server. Flow turns natural-language requirements into deployable web, mobile, and offline-capable apps with native connectors to SAP, Oracle, Salesforce, and REST APIs.
+Guide the Kiro agent to build enterprise-ready applications on Pillir Flow using the Flow MCP server. Flow turns natural-language requirements into deployable web, mobile, and offline-capable apps with native connectors to SAP, Oracle, and REST APIs.
+
+Flow uses an outcome-based pricing model: customers pay per **Pillir Work Unit** (one completed business transaction that executes an end-to-end workflow and delivers a measurable outcome). Keep this in mind when designing flows — value scales with work delivered, not with complexity.
+
+
+> **CRITICAL — READ BEFORE DOING ANYTHING ELSE:**
+> You MUST complete the API key check below BEFORE calling any Flow MCP tools, making test calls, or proceeding to any other onboarding step. Do NOT skip this. Do NOT make "lightweight" or "discovery" calls to test connectivity. Ask the user first.
 
 ## Onboarding
 
-### Step 1: Verify Flow credentials (BLOCKING)
+### Step 1: Verify Flow API key (MANDATORY — DO NOT SKIP)
 
-Before proceeding to any other step, check that the user has a valid API key configured.
+**Stop. Do not call any MCP tools yet.** First, ask the user:
 
-1. Check `mcp.json` for the `X-FLOW-API-KEY` header value.
-2. If it references an environment variable (e.g., `${PILLIR_API_KEY}`), ask the user whether they have set that variable.
-3. **If the key is missing or the user hasn't set it up, STOP here.** Walk them through:
-   - Generating a key from their Flow workspace at `https://flow.pillir.ai`
-   - Either setting `PILLIR_API_KEY` as an environment variable, or pasting the key directly into `~/.kiro/settings/mcp.json`
-   - Restarting Kiro to pick up the change
-4. Do NOT proceed to Step 2 or Step 3 until the user confirms the key is in place. Acceptable confirmation: the user says "done", "set", "configured", shares a masked key, or explicitly tells you to continue. A different question or silence is NOT confirmation — re-ask.
-5. Once confirmed, verify by making a minimal MCP discovery call (list available Flow tools). Interpret the response:
-   - **200 with a tool list** → key is valid, proceed to Step 2
-   - **401 or 403** → key is wrong or expired. Return to step 3; do not proceed
-   - **404 or connection hangs** → the key may be fine, but the endpoint URL or `transport` in `mcp.json` is wrong. Flag this separately and diagnose before continuing
+> "Have you set up your Pillir Flow API key? This power requires a valid `PILLIR_API_KEY` to connect to the Flow MCP server."
+
+Then wait for the user to respond. Do not proceed until they confirm.
+
+**If the user says no, hasn't set it up, or is unsure**, walk them through setup:
+
+1. Go to `https://flow.pillir.ai` and log in
+2. Navigate to workspace settings and generate an API key
+3. Set it up using one of these options:
+   - **Option A (recommended):** Set the environment variable `PILLIR_API_KEY` in your shell profile, then restart Kiro
+   - **Option B:** Open `~/.kiro/settings/mcp.json`, find the `X-FLOW-API-KEY` header under the Flow server entry, and replace `${PILLIR_API_KEY}` with the actual key value
+4. After setup, restart Kiro or reconnect the MCP server
+
+**Do NOT proceed to Step 2 until the user explicitly confirms the key is configured.** Acceptable confirmations: "done", "set", "configured", or the user shares a masked key. A different question or silence is NOT confirmation — ask again.
+
+**After the user confirms**, make one test call to verify. If it returns 401 or 403, the key is wrong — go back to setup. If it returns a different error, the key may be fine but the server config needs debugging.
 
 ### Step 2: Install the recommended hook
 
@@ -53,7 +66,7 @@ List the Flow MCP tools available in this session and summarize what the user ca
 ## Best practices
 
 - **Start with requirements, not screens.** Ask the user for the business problem first; Flow will generate the wireframes.
-- **Prefer native connectors over custom APIs.** If integrating with SAP, Oracle, or Salesforce, use Flow's built-in adapters — no ABAP, no OData.
+- **Prefer native connectors over custom APIs.** If integrating with SAP or Oracle  use Flow's built-in adapters — no ABAP, no OData.
 - **Design for offline first** when the app is field-facing. Flow supports patented offline sync; enable it in the spec.
 - **Export test scripts** Flow generates automatically and run them in your QA pipeline before deployment.
 - **Use Creator or Enterprise edition** for anything involving system integration, custom workflows, or production deployment.
@@ -63,5 +76,5 @@ List the Flow MCP tools available in this session and summarize what the user ca
 Route to the right guidance based on what the user is doing:
 
 - Generating or editing a flow → `steering/flow-app-generation.md`
-- Connecting to SAP, Oracle, Salesforce, or REST → `steering/flow-integrations.md`
+- Connecting to SAP, Oracle or REST → `steering/flow-integrations.md`
 - Preparing for staging or production release → `steering/flow-deployment.md`

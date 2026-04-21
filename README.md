@@ -2,14 +2,14 @@
 
 # Pillir Flow Power for Kiro
 
-Kiro Power for Pillir Flow — build enterprise apps on SAP, Oracle, and Salesforce through natural language in the Kiro IDE.
+Kiro Power for Pillir Flow — build enterprise apps on SAP, Oracle, through natural language in the Kiro IDE.
 
-This Power connects Kiro agents to the [Pillir Flow](https://flow.pillir.ai) MCP server so you can generate, integrate, and deploy production-ready apps end-to-end.
+This Power connects Kiro agents to the [Pillir Flow](https://flow.pillir.ai) so you can generate, integrate, and deploy production-ready apps end-to-end.
 
 ## What this Power does
 
 - Turns business requirements into flows, wireframes, and data models via Flow
-- Connects to SAP, Oracle, Salesforce, and REST backends using Flow's native adapters
+- Connects to SAP, Oracle and REST backends using Flow's native adapters
 - Generates test scripts and deploys to web, mobile, offline, and rugged-device targets
 - Keeps your Kiro context focused — steering files load on-demand per workflow
 
@@ -23,14 +23,24 @@ This Power connects Kiro agents to the [Pillir Flow](https://flow.pillir.ai) MCP
 
 ## Activation
 
-The Power activates automatically when you mention any of these keywords in Kiro chat: `pillir`, `flow`, `pillir flow`, `enterprise app`, `low-code`, `sap integration`, `oracle integration`, `salesforce integration`, `wireframe`, `app generation`.
+The Power activates automatically when you mention any of these keywords in Kiro chat: `pillir`, `flow`, `pillir flow`, `enterprise app`, `low-code`, `sap integration`, `oracle integration`, `wireframe`, `app generation`, `work unit`.
 
 ## Requirements
 
-- A Pillir Flow account (Explorer, Creator, or Enterprise edition)
+- A Pillir Flow account
 - Kiro IDE 1.0 or later
 - A valid Pillir Flow API key
 
+## Pricing
+
+Pillir Flow uses an outcome-based pricing model called the **Pillir Work Unit**. You pay for completed business transactions that execute end-to-end workflows and deliver measurable outcomes — not for licenses, API calls, tokens, or developer seats. Value scales with the work delivered; complexity doesn't drive cost.
+
+The lifecycle covered by a Work Unit: **Discover → Build → Run → Execute → Act**.
+
+This Power itself is free and MIT-licensed (see below). Use of Pillir Flow's MCP server consumes Work Units against your Pillir Flow account. See [pillir.ai](https://pillir.ai) for current Work Unit pricing and edition details.
+
 ## License
 
-MIT. See `LICENSE` for details.
+This Power (the `POWER.md`, `mcp.json`, steering files, and accompanying docs) is MIT-licensed. See `LICENSE` for details.
+
+Pillir Flow is a commercial service governed by Pillir's Terms of Service and the Pillir Work Unit pricing model.

@@ -6,7 +6,6 @@ Supported native integrations:
 
 - **SAP** — direct adapter, no ABAP or OData development needed
 - **Oracle** — direct adapter for Oracle databases and ERP
-- **Salesforce** — direct adapter using Salesforce APIs
 - **Microsoft systems** — Dynamics, SharePoint, etc.
 - **REST APIs** — generic adapter for any RESTful service
 
