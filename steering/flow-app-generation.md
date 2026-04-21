@@ -1,14 +1,20 @@
-# Flow App Generation Workflow
+# Flow Integrations Workflow
 
-When the user wants to build a new app on Pillir Flow:
+Pillir Flow has native adapters for enterprise systems. Use them instead of writing custom integration code.
 
-1. **Gather requirements in plain language.** Ask what the business problem is, who the users are, and what devices they'll use (web, mobile, rugged scanner).
-2. **Call the Flow MCP tool to generate a spec.** Flow produces flows, wireframes, data models, and test scripts from the requirements.
-3. **Review the generated spec with the user.** Flag missing roles, unclear approval steps, or data-model gaps before proceeding.
-4. **Iterate on the spec, not the code.** Flow regenerates the app from the spec — changing code directly defeats the round-trip.
-5. **Preview the app** in Flow's test environment (Explorer Edition) or deploy to Pillir cloud (Creator Edition) or the user's own cloud (Enterprise Edition).
+Supported native integrations:
 
-Key constraints:
+- **SAP** — direct adapter, no ABAP or OData development needed
+- **Oracle** — direct adapter for Oracle databases and ERP
+- **Salesforce** — direct adapter using Salesforce APIs
+- **Microsoft systems** — Dynamics, SharePoint, etc.
+- **REST APIs** — generic adapter for any RESTful service
 
-- Explorer Edition is single-user and can't do system integrations — escalate to Creator/Enterprise if the user needs SAP, Oracle, Salesforce, or REST connections.
-- Offline capability must be declared in the spec; it can't be added post-generation without regeneration.
+Workflow:
+
+1. Ask the user which backend(s) the app needs to talk to.
+2. Use the Flow MCP integration tool to register the connection — the user provides backend credentials in Flow, not in Kiro.
+3. Map Flow data models to backend entities through the Flow UI or via MCP calls.
+4. Test the integration in Flow's test environment before deploying.
+
+If the user asks about a system not in the list above, check whether a REST API exists; if yes, use the REST adapter. Never suggest custom code as a first resort.

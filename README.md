@@ -1,6 +1,8 @@
 # Pillir Flow Power for Kiro
 
-Build enterprise apps on [Pillir Flow](https://flow.pillir.ai) directly from the Kiro IDE. This Power connects Kiro agents to the Flow MCP server so you can generate, integrate, and deploy production-ready apps through natural language.
+Kiro Power for Pillir Flow — build enterprise apps on SAP, Oracle, and Salesforce through natural language in the Kiro IDE.
+
+This Power connects Kiro agents to the [Pillir Flow](https://flow.pillir.ai) MCP server so you can generate, integrate, and deploy production-ready apps end-to-end.
 
 ## What this Power does
 
@@ -14,7 +16,7 @@ Build enterprise apps on [Pillir Flow](https://flow.pillir.ai) directly from the
 1. Open Kiro IDE.
 2. Go to the Powers panel and click **Add power from GitHub**.
 3. Paste this repo's URL: `https://github.com/pillir/power-pillir-flow`
-4. When prompted, provide your Pillir Flow API token. It will be stored in `~/.kiro/settings/mcp.json` under the Powers section.
+4. When prompted, provide your Pillir Flow API key. Set it as the `PILLIR_API_KEY` environment variable, or paste it directly into `~/.kiro/settings/mcp.json` under `mcpServers.pillir-flow.headers.X-FLOW-API-KEY`.
 5. Click **Try the power** to run the onboarding flow.
 
 ## Activation
@@ -25,7 +27,7 @@ The Power activates automatically when you mention any of these keywords in Kiro
 
 - A Pillir Flow account (Explorer, Creator, or Enterprise edition)
 - Kiro IDE 1.0 or later
-- A valid Flow API token
+- A valid Pillir Flow API key
 
 ## License
 

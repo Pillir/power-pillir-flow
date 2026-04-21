@@ -1,8 +1,8 @@
 ---
 name: pillir-flow
-description: Build enterprise apps on Pillir Flow through natural language — generate flows, wireframes, data models, and deploy to SAP, Oracle, Salesforce, and REST backends without custom code.
+description: Build enterprise apps on Pillir Flow through natural language — SAP, Oracle, Salesforce, and REST integrations, spec-driven and deployment-ready.
 version: 0.1.0
-author: your-github-username
+author: Pillir
 keywords:
   - pillir
   - flow
@@ -34,16 +34,16 @@ Guide the Kiro agent to build enterprise-ready applications on Pillir Flow using
 Before calling any Flow MCP tools, confirm the user has:
 
 - A Pillir Flow account at `https://flow.pillir.ai`
-- A valid API token or OAuth credential stored in their Kiro MCP settings
+- A valid **Pillir Flow API key** stored as the `PILLIR_API_KEY` environment variable (or pasted directly into `~/.kiro/settings/mcp.json` under `mcpServers.pillir-flow.headers.X-FLOW-API-KEY`)
 - The edition (Explorer, Creator, or Enterprise) that matches what they want to do — integrations and deployment require Creator or Enterprise
 
-If credentials are missing, instruct the user to generate a token from their Flow workspace settings and add it to `~/.kiro/settings/mcp.json` under the Powers section.
+If the API key is missing, instruct the user to generate one from their Flow workspace settings and add it to their Kiro MCP configuration.
 
 ### Step 2: Install the recommended hook
 
 Add this hook to `.kiro/hooks/review-flow-spec.kiro.hook`:
 
-```json
+​```json
 {
   "enabled": true,
   "name": "Review Flow Spec",
@@ -55,11 +55,11 @@ Add this hook to `.kiro/hooks/review-flow-spec.kiro.hook`:
     "prompt": "Review the current Flow spec for missing requirements, unmapped integrations, and deployment readiness. Flag any gaps before publishing."
   }
 }
-```
+​```
 
 ### Step 3: Confirm the MCP server is reachable
 
-Run a lightweight discovery call against the Flow MCP server to list available tools. If the call fails with a 401, the token is wrong. If it fails with a 404, the endpoint URL in `mcp.json` is wrong.
+Run a lightweight discovery call against the Flow MCP server to list available tools. If the call fails with a 401 or 403, the API key is missing or invalid. If it fails with a 404 or hangs, the endpoint URL or transport in `mcp.json` is wrong.
 
 ## Best practices
 
