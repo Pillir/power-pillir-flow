@@ -1,5 +1,4 @@
 ---
----
 name: "pillir-flow"
 displayName: "Pillir Flow"
 description: "Build enterprise apps on Pillir Flow through natural language - SAP, Oracle, Salesforce, and REST integrations, spec-driven and deployment-ready."
