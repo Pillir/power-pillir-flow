@@ -1,6 +1,7 @@
 ---
 name: pillir-flow
-description: Build enterprise apps on Pillir Flow through natural language — SAP, Oracle, Salesforce, and REST integrations, spec-driven and deployment-ready.
+displayName: "Pillir Flow"
+description: "Build enterprise apps on Pillir Flow through natural language — SAP, Oracle, Salesforce, and REST integrations, spec-driven and deployment-ready."
 version: 0.1.0
 author: Pillir
 keywords:
