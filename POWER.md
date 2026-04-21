@@ -77,9 +77,6 @@ List the Flow MCP tools available in this session and summarize what the user ca
 - **Execute functions using Flow.** Once a function is identified and selected, Flow runs it directly against the enterprise system and returns the response.
   Example: `execute_function` runs the selected function with the supplied mandatory and optional parameters and returns the SAP response.
 
-- **Be transparent about Work Units.** Pillir Flow bills per completed business transaction (the "Pillir Work Unit"), not per API call, seat, or token. Flag to the user when a workflow will consume Work Units at runtime — especially loops, batch operations, or scheduled jobs that might run frequently. Suggest combining steps into a single transaction where it preserves the business outcome.
-
-
 ## Steering map
 
 Route to the right guidance based on what the user is doing:
