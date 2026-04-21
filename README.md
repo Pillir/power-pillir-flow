@@ -1,3 +1,5 @@
+<img src="./icon.png" alt="Pillir Flow" width="96" height="96" align="right" />
+
 # Pillir Flow Power for Kiro
 
 Kiro Power for Pillir Flow — build enterprise apps on SAP, Oracle, and Salesforce through natural language in the Kiro IDE.

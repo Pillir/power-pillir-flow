@@ -1,9 +1,11 @@
 ---
-name: pillir-flow
-displayName: "Pillir Flow"
+name: "pillir-flow"
 description: "Build enterprise apps on Pillir Flow through natural language — SAP, Oracle, Salesforce, and REST integrations, spec-driven and deployment-ready."
-version: 0.1.0
-author: Pillir
+version: "0.1.0"
+author: "Pillir"
+Icon: icon.png
+Label: "Pillir Flow"
+Description: "Build enterprise apps on Pillir Flow through natural language..."
 keywords:
   - pillir
   - flow
@@ -30,15 +32,21 @@ Guide the Kiro agent to build enterprise-ready applications on Pillir Flow using
 
 ## Onboarding
 
-### Step 1: Verify Flow credentials
+### Step 1: Verify Flow credentials (BLOCKING)
 
-Before calling any Flow MCP tools, confirm the user has:
+Before proceeding to any other step, check that the user has a valid API key configured.
 
-- A Pillir Flow account at `https://flow.pillir.ai`
-- A valid **Pillir Flow API key** stored as the `PILLIR_API_KEY` environment variable (or pasted directly into `~/.kiro/settings/mcp.json` under `mcpServers.pillir-flow.headers.X-FLOW-API-KEY`)
-- The edition (Explorer, Creator, or Enterprise) that matches what they want to do — integrations and deployment require Creator or Enterprise
-
-If the API key is missing, instruct the user to generate one from their Flow workspace settings and add it to their Kiro MCP configuration.
+1. Check `mcp.json` for the `X-FLOW-API-KEY` header value.
+2. If it references an environment variable (e.g., `${PILLIR_API_KEY}`), ask the user whether they have set that variable.
+3. **If the key is missing or the user hasn't set it up, STOP here.** Walk them through:
+   - Generating a key from their Flow workspace at `https://flow.pillir.ai`
+   - Either setting `PILLIR_API_KEY` as an environment variable, or pasting the key directly into `~/.kiro/settings/mcp.json`
+   - Restarting Kiro to pick up the change
+4. Do NOT proceed to Step 2 or Step 3 until the user confirms the key is in place. Acceptable confirmation: the user says "done", "set", "configured", shares a masked key, or explicitly tells you to continue. A different question or silence is NOT confirmation — re-ask.
+5. Once confirmed, verify by making a minimal MCP discovery call (list available Flow tools). Interpret the response:
+   - **200 with a tool list** → key is valid, proceed to Step 2
+   - **401 or 403** → key is wrong or expired. Return to step 3; do not proceed
+   - **404 or connection hangs** → the key may be fine, but the endpoint URL or `transport` in `mcp.json` is wrong. Flag this separately and diagnose before continuing
 
 ### Step 2: Install the recommended hook
 
@@ -58,9 +66,9 @@ Add this hook to `.kiro/hooks/review-flow-spec.kiro.hook`:
 }
 ​```
 
-### Step 3: Confirm the MCP server is reachable
+### Step 3: Confirm capabilities
 
-Run a lightweight discovery call against the Flow MCP server to list available tools. If the call fails with a 401 or 403, the API key is missing or invalid. If it fails with a 404 or hangs, the endpoint URL or transport in `mcp.json` is wrong.
+List the Flow MCP tools available in this session and summarize what the user can do from Kiro — generate specs, register integrations, trigger deployments, etc. This gives them a concrete starting point.
 
 ## Best practices
 
