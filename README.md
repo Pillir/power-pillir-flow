@@ -8,7 +8,7 @@ This Power connects Kiro agents to the [Pillir Flow](https://flow.pillir.ai) so 
 
 ## What this Power does
 
-- Turns business requirements into flows, wireframes, and data models via Flow
+- Harvesting your Legacy via Flow
 - Connects to SAP, Oracle and REST backends using Flow's native adapters
 - Generates test scripts and deploys to web, mobile, offline, and rugged-device targets
 - Keeps your Kiro context focused — steering files load on-demand per workflow

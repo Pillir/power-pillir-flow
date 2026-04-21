@@ -1,8 +1,8 @@
 ---
 name: "pillir-flow"
 displayName: "Pillir Flow"
-description: "Build enterprise apps on Pillir Flow through natural language - SAP, Oracle and REST integrations, spec-driven and deployment-ready."
-keywords: ["pillir", "flow", "pillir flow", "enterprise app", "low-code", "sap integration", "oracle integration",  "wireframe", "app generation", "work unit"]
+description: "Pillir Flow — the AI execution engine. Turns AI intent into real work, executed directly against SAP, Oracle, JD Edwards, and your enterprise systems. No APIs. No rewrites. No middleware."
+keywords: ["pillir", "flow", "pillir flow", "enterprise app", "low-code", "sap integration", "oracle integration",  "app generation", "work unit"]
 version: "0.1.0"
 author: "Pillir"
 icon: "./icon.png"
