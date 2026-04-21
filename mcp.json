@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "pillir-flow": {
+      "type": "url",
+      "url": "https://flow.pillir.ai/mcp/sse",
+      "name": "pillir-flow",
+      "description": "Pillir Flow MCP server — build and deploy enterprise apps via Flow",
+      "transport": "streamable-http",
+      "headers": {
+        "X-FLOW-API-KEY": "${PILLIR_API_KEY}"
+      }
+    }
+  }
+}
