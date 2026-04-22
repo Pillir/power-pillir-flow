@@ -6,6 +6,17 @@ keywords: ["pillir", "flow", "pillir flow", "enterprise app",  "sap integration"
 version: "0.1.0"
 author: "Pillir"
 icon: "./icon.png"
+license: "MIT"
+privacyPolicy: "https://www.pillir.io/privacy-policy"
+support: "support@pillir.ai"
+homepage: "https://pillir.ai"
+repository: "https://github.com/pillir/power-pillir-flow"
+mcpServers:
+  - name: "pillir-flow"
+    license: "LicenseRef-Pillir-Commercial"
+    privacyPolicy: "https://www.pillir.io/privacy-policy"
+    support: "support@pillir.ai"
+    homepage: "https://flow.pillir.ai"
 ---
 
 # Pillir Flow Power
@@ -83,3 +94,16 @@ Route to the right guidance based on what the user is doing:
 
 - Discovering or executing ERP functions → `steering/flow-discover-and-execute.md`
 - Connecting to a specific enterprise system (SAP, Oracle, JDE) → `steering/flow-integrations.md`
+
+## License and support
+
+**This Power**
+- License: MIT
+- Source: [github.com/pillir/power-pillir-flow](https://github.com/pillir/power-pillir-flow)
+- Issues and PRs: [github.com/pillir/power-pillir-flow/issues](https://github.com/pillir/power-pillir-flow/issues)
+
+**Pillir Flow MCP server**
+- License: Commercial — governed by [Pillir Terms of Service](https://pillir.ai)
+- Privacy Policy: [pillir.ai/privacy](https://www.pillir.io/privacy-policy)
+- Homepage: [flow.pillir.ai](https://flow.pillir.ai)
+- Support: [support@pillir.ai](mailto:support@pillir.ai) or [Pillir support portal](https://support.pillir.io)

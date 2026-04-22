@@ -55,3 +55,22 @@ This Power itself is free and MIT-licensed (see below). Use of Pillir Flow's MCP
 This Power (the `POWER.md`, `mcp.json`, steering files, and accompanying docs) is MIT-licensed. See `LICENSE` for details.
 
 Pillir Flow is a commercial service governed by Pillir's Terms of Service and the Pillir Work Unit pricing model.
+
+## License and support
+
+### The Power itself
+
+- **License:** MIT — see [LICENSE](./LICENSE)
+- **Source:** this repo ([github.com/pillir/power-pillir-flow](https://github.com/pillir/power-pillir-flow))
+- **Issues:** open a GitHub issue on this repo
+
+### Pillir Flow (the underlying service)
+
+- **License:** Commercial — Pillir Flow is a paid service governed by [Pillir's Terms of Service](https://pillir.ai)
+- **Privacy Policy:** [pillir.ai/privacy](https://www.pillir.io/privacy-policy)
+- **Pricing:** Pillir Work Unit model 
+- **Support:** [support@pillir.ai](mailto:support@pillir.ai)
+
+**Who handles what:**
+- Bug in the Power (wrong steering, bad config, docs error) → open a GitHub issue on this repo
+- Problem with Flow itself (MCP connection, Work Unit billing, ERP execution) → contact Pillir support directly
